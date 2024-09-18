@@ -30,7 +30,7 @@ git remote add origin https://github.com/Mayuri14-ctrl/Async-python-application-
 git push -u origin master
 ```
 
-##AWS EC2 Deployment
+### AWS EC2 Deployment
 1.Launch EC2 Instance
 
 Log into the AWS Management Console and navigate to EC2.
