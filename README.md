@@ -20,14 +20,15 @@ This repository contains a FastAPI application integrated with the Llama3 model 
 1.Create requirements file
 ```bash
 pip freeze > requirements.txt
-
+```
 2. Push Code to GitHub:
-   ```bash
+```bash   
 git init
 git add main.py db/ requirements.txt
 git commit -m "Initial commit with main.py and db setup"
 git remote add origin https://github.com/Mayuri14-ctrl/Async-python-application-with-FastAPI-and-integration-with-llama3.git
 git push -u origin master
+```
 
 ##AWS EC2 Deployment
 1.Launch EC2 Instance
@@ -40,15 +41,23 @@ Configure a key pair for SSH access. It will download a pem file
 Allow SSH, HTTP, and HTTPS traffic
 
 2. SSH into the EC2 instance:
+```bash   
+
 cd Downloads
 ssh -i "your_private_key.pem" ec2-user@your_public_ip_address
-ssh -i "fastapi.pem" ubuntu@34.203.193.16
 
-3. Clone the GitHub repository:
+```
+
+4. Clone the GitHub repository:
+```bash   
+
 https://github.com/Mayuri14-ctrl/Async-python-application-with-FastAPI-and-integration-with-llama3.git
 cd Async-python-application-with-FastAPI-and-integration-with-llama3
+```
 
-4. Install python
+6. Install python
+```bash   
+
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update
 sudo apt-get install python3.10-venv
@@ -57,20 +66,28 @@ curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 python3.10 get-pip.py
 python3.10 -m venv myenv
 source myenv/bin/activate
+```
 
-5. Install requirements
+7. Install requirements
+```bash   
 pip install -r requirements.txt
 pip install fastapi uvicorn sqlalchemy aiosqlite langchain_community
+```
 
-6. Install ollama and llama3
+8. Install ollama and llama3
+```bash   
 sudo apt install snapd
 sudo snap install ollama
 ollama pull llama3
+```
 
-7. Deploying the API
+9. Deploying the API
+```bash   
 uvicorn main:app --host 0.0.0.0 --port 8000
+```
 
-8. FastAPI app accessible via HTTP (port 80),  Configure Nginx (Reverse Proxy)
+10. FastAPI app accessible via HTTP (port 80),  Configure Nginx (Reverse Proxy)
+```bash   
 sudo apt-get install nginx -y
 sudo systemctl start nginx
 sudo systemctl enable nginx
@@ -91,6 +108,7 @@ server {
 sudo ln -s /etc/nginx/sites-available/my_site /etc/nginx/sites-enabled/
 sudo nginx -t
 sudo systemctl reload nginx
+```   
 
 Now, when you navigate to your EC2 instance’s public IP (http://34.203.193.16/), your FastAPI app should be accessible.
 
