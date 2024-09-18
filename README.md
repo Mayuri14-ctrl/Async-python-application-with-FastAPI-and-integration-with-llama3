@@ -110,7 +110,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```   
 
-Now, when you navigate to your EC2 instance’s public IP (http://34.203.193.16/), your FastAPI app should be accessible.
+Now, when you navigate to your EC2 instance’s public IP (http://34.203.193.16/docs), your FastAPI app should be accessible.
 
 ## Use Systemd Service file to ensure it runs as a serivice
 1. Create a new service file
