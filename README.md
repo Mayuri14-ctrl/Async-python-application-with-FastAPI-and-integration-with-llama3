@@ -112,6 +112,29 @@ sudo systemctl reload nginx
 
 Now, when you navigate to your EC2 instance’s public IP (http://34.203.193.16/), your FastAPI app should be accessible.
 
+## Use Systemd Service file to ensure it runs as a serivice
+1. Create a new service file
+```bash
+   sudo nano /etc/systemd/system/fastapi.service
+```   
+2. Add the following config to the file
+```bash
+[Service]
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/Async-python-application-with-FastAPI-and-integration-with-llama3
+ExecStart=/bin/bash -c 'source /home/ubuntu/Async-python-application-with-FastAPI-and-integration-with-llama3/book_management/bin/activate && exec uvicorn main:app --host 0.0.0.0 --port 8000'
+Restart=always
+```   
+3. Reload Systemd
+```bash
+sudo systemctl daemon-reload
+```   
+
+5. Start the service
+```bash
+sudo systemctl start fastapi.service
+```   
 
 
 
