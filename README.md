@@ -15,13 +15,13 @@ This repository contains a FastAPI application integrated with the Llama3 model 
 
 ## Installation
 
-### Local Setup
+### Local Setup to push source code and dependencies
 
 1.Create requirements file
 ```bash
 pip freeze > requirements.txt
 ```
-2. Push Code to GitHub:
+2.Push Code to GitHub:
 ```bash   
 git init
 git add main.py db/ requirements.txt
